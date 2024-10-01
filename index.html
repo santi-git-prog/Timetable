@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetable of CSE G2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border: 3px solid #00d4ff;
+        }
+        th {
+            background-color: #00d4ff;
+            color: #333;
+            font-size: 1.2em;
+        }
+        td {
+            background-color: #e3f2fd; /* Light Blue for timing slots */
+            color: #333;
+            font-weight: bold;
+        }
+        tr:nth-child(even) td {
+            background-color: #bbdefb; /* Slightly darker blue for even rows */
+        }
+        .marquee-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Space between marquee boxes */
+            margin-top: 20px; /* Space above the marquee */
+        }
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            background-color: #ff4081;
+            color: white;
+            padding: 15px 0; /* Increased padding */
+            animation: marquee 15s linear infinite;
+            font-size: 1.5em; /* Increased font size */
+            font-weight: bold;
+            text-align: center;
+            border-radius: 8px; /* Rounded corners */
+            position: relative; /* Required for positioning */
+        }
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+</head>
+<body>
+    <h1>TIMETABLE</h1>
+    <table>
+        <tr>
+            <th></th>
+            <td><b>08:30am-09:20am</b></td>
+            <td><b>09:20am-10:10am</b></td>
+            <td><b>10:30am-11:20am</b></td>
+            <td><b>11:20am-12:10pm</b></td>
+            <td><b>01:40pm-02:30pm</b></td>
+            <td><b>02:30pm-03:20pm</b></td>
+            <td><b>03:30pm-04:20pm</b></td>
+            <td><b>04:20pm-05:10pm</b></td>
+        </tr>
+        <tr>
+            <th>Monday</th>
+            <td>Library</td>
+            <td>English</td>
+            <td>Library</td>
+            <td>Maths</td>
+            <td>CT</td>
+            <td>CT</td>
+            <td>Library</td>
+            <td>---</td>
+        </tr>
+        <tr>
+            <th>Tuesday</th>
+            <td>Library</td>
+            <td>English</td>
+            <td>Maths</td>
+            <td>Library</td>
+            <td>Library</td>
+            <td>Chemistry</td>
+            <td>Tutor Ward Meeting</td>
+            <td>---</td>
+        </tr>
+        <tr>
+            <th>Wednesday</th>
+            <td>CT</td>
+            <td>Chemistry</td>
+            <td>Physics</td>
+            <td>Library</td>
+            <td>Physics</td>
+            <td>Maths</td>
+            <td>English</td>
+            <td>---</td>
+        </tr>
+        <tr>
+            <th>Thursday</th>
+            <td>Library</td>
+            <td>English</td>
+            <td>Physics</td>
+            <td>CT</td>
+            <td>Python Lab</td>
+            <td>Python Lab</td>
+            <td>Python Lab</td>
+            <td>Python Lab</td>
+        </tr>
+        <tr>
+            <th>Friday</th>
+            <td>Library</td>
+            <td>Maths</td>
+            <td>Chemistry</td>
+            <td>Library</td>
+            <td>Phy/Chem Lab</td>
+            <td>Phy/Chem Lab</td>
+            <td>Phy/Chem Lab</td>
+            <td>Phy/Chem Lab</td>
+        </tr>
+    </table>
+    
+    <div class="marquee-container">
+        <div class="marquee">
+            <div>The break time in the morning is from 10:10am-10:30am.</div>
+        </div>
+        <div class="marquee">
+            <div>The break time in the evening is from 03:20pm-03:30pm.</div>
+        </div>
+        <div class="marquee">
+            <div>The lunch break is from 12:10pm-01:40pm.</div>
+        </div>
+    </div>
+
+    <script>
+        const marquees = document.querySelectorAll('.marquee');
+
+        marquees.forEach(marquee => {
+            marquee.addEventListener('mouseenter', () => {
+                marquees.forEach(m => {
+                    m.style.animationPlayState = 'paused';
+                });
+            });
+
+            marquee.addEventListener('mouseleave', () => {
+                marquees.forEach(m => {
+                    m.style.animationPlayState = 'running';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
